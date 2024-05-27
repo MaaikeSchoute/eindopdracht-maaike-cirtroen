@@ -4,7 +4,9 @@ console.log("hello");
 const startKnop = document.querySelector("#knop");
 const dierPlaatje = document.querySelector("#dierPlaatje");
 const getalEl = document.querySelector("#getal");
+const header = document.querySelector("header");
 const main = document.querySelector("main");
+const footer = document.querySelector("footer");
 
 // --------------------------------------- Variablenen ---------------------------------------
 let plaatjesArray = ['img/frame/vlieg.png','img/frame/kat.png','img/frame/dolfijn.png','img/frame/hond.png','img/frame/kip.png','img/frame/konijn.png','img/frame/olifant.png','img/frame/paard.png','img/frame/schaap.png','img/frame/schaap.png','img/frame/slang.png','img/frame/vogel.png'];
@@ -19,18 +21,33 @@ function startSpel() {
     randomDierNummer = Math.floor(Math.random()*11);
     console.log("random dier nummer: "+ randomDierNummer);
     dierPlaatje.src = plaatjesArray[randomDierNummer];
+    resetBackgrounds();
 }
 
 function mepDier() {
     dierPlaatje.src = plaatjesArrayFout[randomDierNummer];
 
-    if (randomDierNummer == 0) {
+    if (randomDierNummer === 0) {
         console.log("goed");
-        document.main.classList.add("bgGoed");
-    } else {
-        console.log("fout");
-        document.main.classList.add("bgFoutBody");
+        main.classList.add("bgGoed");
+        footer.classList.add("bgGoedHF");
+        header.classList.add("bgGoedHF");
+        
     }
+
+    else {
+        console.log("fout");
+        main.classList.add("bgFoutBody");
+        footer.classList.add("bgFoutHF");
+        header.classList.add("bgFoutHF");
+    }
+}
+
+function resetBackgrounds() {
+    startKnop.addEventListener("click", startSpel);
+    main.classList.remove("bgFoutBody", "bgGoed");
+    footer.classList.remove("bgFoutHF", "bgGoedHF");
+    header.classList.remove("bgFoutHF", "bgGoedHF");
 }
 
 startKnop.addEventListener("click", startSpel);

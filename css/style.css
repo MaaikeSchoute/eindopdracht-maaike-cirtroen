@@ -71,7 +71,7 @@ img {
 }
 
 .bgFoutBody {
-    background-image: url="img/bg/fout";
+    background-image: url("../img/bg/fout.png");
     background-repeat: repeat;
 }
 
@@ -80,5 +80,9 @@ img {
 }
 
 .bgGoed {
-    background-image: url="img/bg/goed";
+    background-image: url("../img/bg/goed.png");
+}
+
+.bgGoedHF {
+    background-color: #84baaa;
 }
