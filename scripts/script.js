@@ -31,6 +31,8 @@ let intervalRunning = false;
 let snelheid = 1000;
 
 //--------------------------------------- Functies ---------------------------------------
+
+//Start het spel! Laat verschillende dieren zien, behoud de orginele achtergrond, start slideshow.
 function startSpel() {
     randomDierNummer = Math.floor(Math.random() * plaatjesArray.length);
     console.log("random dier nummer: " + randomDierNummer);
@@ -39,6 +41,7 @@ function startSpel() {
     spelGeluid.play();
 }
 
+//Laat zien wat er gebeurd wanneer je op het dier mept.
 function mepDier() {
     snelheidsKnoppen.classList.toggle("hidden");
     clearInterval(intervalId); // Stop het interval
@@ -68,12 +71,14 @@ function mepDier() {
     }
 }
 
+//Verwijderd toegevoegede achtergrond, wanneer je het dierplaatje mept.
 function resetBackgrounds() {
     main.classList.remove("bgFoutBody", "bgGoed");
     footer.classList.remove("bgFoutHF", "bgGoedHF");
     header.classList.remove("bgFoutHF", "bgGoedHF");
 }
 
+//Interval van de slideshow, verschillende dieren
 function startAutoPlay() {
     console.log("interval running: " + intervalRunning);
     if (!intervalRunning) {
@@ -82,15 +87,15 @@ function startAutoPlay() {
     }
 }
 
+//Past moeilijkheids niveau aan van spel
 function setMoeilijkheid(niveau) {
-
     snelheid = niveau;
     console.log("niveau: " + snelheid);
     clearInterval(intervalId);
     intervalRunning = false;
     startAutoPlay();
-
 }
+
 //--------------------------------------- Event Listeners ---------------------------------------
 // Knop "Volgend dier"
 startKnop.addEventListener("click", function() {
@@ -98,6 +103,7 @@ startKnop.addEventListener("click", function() {
 });
 dierPlaatje.addEventListener("click", mepDier);
 
+//moeilijkheidsknoppen
 makkelijkKnop.addEventListener("click", function() {
     setMoeilijkheid(2000); // 2 seconds
 });
