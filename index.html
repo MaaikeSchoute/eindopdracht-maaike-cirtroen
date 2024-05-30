@@ -7,15 +7,19 @@
     <script src="scripts/script.js" defer></script>
     <link rel="stylesheet" href="css/style.css" />
     <audio id="mepGeluid" src="geluid/hit.mp3"></audio>
-    <audio id="spelGeluid" src="geluid/hit.mp3"></audio>
+    <audio id="spelGeluid" src="geluid/spel.mp3"></audio>
+    <audio id="failGeluid" src="geluid/fail.mp3"></audio>
+    <audio id="winGeluid" src="geluid/win.mp3"></audio>
 </head>
 <body>
     <header>
         <h2>Aantal gemepte vliegen</h2>
         <p id="getal">0</p>
-        <div class="sliderBox">
-        <label for="snelheidSlider">Snelheid:</label>
-        <input type="range" id="snelheidSlider" min="500" max="5000" step="100" value="1000">
+        <div id="snelheidsKnoppen" class="snelheidsKnoppen">
+            <button class="snelheidsKnop" id="makkelijk">Makkelijk</button>
+            <button class="snelheidsKnop" id="normaal">Normaal</button>
+            <button class="snelheidsKnop" id="moeilijk">Moeilijk</button>
+            <button class="snelheidsKnop" id="expert">Expert!</button>
         </div>
     </header>
     <main>

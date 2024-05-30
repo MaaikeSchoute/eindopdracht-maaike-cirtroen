@@ -14,6 +14,11 @@ header {
     height: 7em;
     padding:1em;
     padding-top:4.0em;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
 }
 
 main {
@@ -69,6 +74,13 @@ img {
     width: 12em;
 }
 
+#vliegenMepper {
+    position: absolute;
+    top: 230px;
+    width: 12em;
+    ;
+}
+
 .bgFoutBody {
     background-image: url("../img/bg/fout.png");
     background-repeat: repeat;
@@ -86,7 +98,6 @@ img {
     background-color: #84baaa;
 }
 
-
 @keyframes mepAnimatie {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -95,7 +106,7 @@ img {
 
 .mepAnimatie {
     animation: mepAnimatie 0.2s ease;
-    
+
 }
 
 .sliderBox {
@@ -104,5 +115,24 @@ img {
     width: 200px;
     margin: 1em;
     font-style: #4a7042;
+}
 
+.snelheidsKnop {
+    width: 13em;
+    font-size: 12px;
+ 
+}
+
+.snelheidsKnoppen {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    position: relative;
+}
+
+/* bron: https://v1.scrimba.com/scrim/coc814b61a6b094ade91cee80?pl=pZgNL9HV# */
+.hidden {
+    visibility: hidden;
 }
