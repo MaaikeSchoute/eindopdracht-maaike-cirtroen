@@ -7,7 +7,8 @@ const getalEl = document.querySelector("#getal");
 const header = document.querySelector("header");
 const main = document.querySelector("main");
 const footer = document.querySelector("footer");
-const mepGeluid = document.getElementById("mepGeluid");
+const mepGeluid = document.querySelector("#mepGeluid");
+const spelGeluid = document.querySelector("#spelGeluid")
 
 // --------------------------------------- Variabelen ---------------------------------------
 let plaatjesArray = ['img/frame/vlieg.png','img/frame/kat.png','img/frame/dolfijn.png','img/frame/hond.png','img/frame/kip.png','img/frame/konijn.png','img/frame/olifant.png','img/frame/paard.png','img/frame/schaap.png','img/frame/schaap.png','img/frame/slang.png','img/frame/vogel.png'];
