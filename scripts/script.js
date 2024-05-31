@@ -9,10 +9,10 @@ const header = document.querySelector("header");
 const main = document.querySelector("main");
 const footer = document.querySelector("footer");
 // geluids effecten
-const mepGeluid = document.querySelector("#mepGeluid");
-const spelGeluid = document.querySelector("#spelGeluid");
-const winGeluid = document.querySelector("#winGeluid");
-const failGeluid = document.querySelector("#failGeluid");
+const mepGeluid = document.querySelector("#mepGeluid"); //      Mep Geluid: Pixabay
+const spelGeluid = document.querySelector("#spelGeluid"); //    Spel geluid: https://www.chosic.com/download-audio/39324/
+const winGeluid = document.querySelector("#winGeluid"); //      Win geluid: Sound Effect from href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=14800" Pixabay
+const failGeluid = document.querySelector("#failGeluid"); //    Fail geluid:  href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=206498" UNIVERSFIELD from href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=206498" Pixabay 
 // sneleheidsknoppen
 const makkelijkKnop = document.querySelector("#makkelijk");
 const normaalKnop = document.querySelector("#normaal");
@@ -31,7 +31,6 @@ let intervalRunning = false;
 let snelheid = 1000;
 
 //--------------------------------------- Functies ---------------------------------------
-
 //Start het spel! Laat verschillende dieren zien, behoud de orginele achtergrond, start slideshow.
 function startSpel() {
     randomDierNummer = Math.floor(Math.random() * plaatjesArray.length);
@@ -43,6 +42,7 @@ function startSpel() {
 
 //Laat zien wat er gebeurd wanneer je op het dier mept.
 function mepDier() {
+    dierPlaatje.classList.add("mepAnimatie");
     snelheidsKnoppen.classList.toggle("hidden");
     clearInterval(intervalId); // Stop het interval
     intervalRunning = false;
@@ -50,7 +50,7 @@ function mepDier() {
     dierPlaatje.src = plaatjesArrayFout[randomDierNummer];
     mepGeluid.play();
     spelGeluid.pause();
-    dierPlaatje.classList.add("mepAnimatie");
+    
 
     if (randomDierNummer === 0) {
         console.log("goed");
@@ -58,7 +58,6 @@ function mepDier() {
         footer.classList.add("bgGoedHF");
         header.classList.add("bgGoedHF");
         winGeluid.play();
-
         // Update de score
         getal++;
         aantalGemepteVliegen.textContent = getal;
@@ -85,6 +84,7 @@ function startAutoPlay() {
         intervalId = setInterval(startSpel, snelheid); // Verander elke seconde
         intervalRunning = true;
     }
+    snelheidsKnoppen.classList.remove("hidden");
 }
 
 //Past moeilijkheids niveau aan van spel
@@ -108,11 +108,11 @@ makkelijkKnop.addEventListener("click", function() {
     setMoeilijkheid(2000); // 2 seconds
 });
 normaalKnop.addEventListener("click", function() {
-    setMoeilijkheid(1000); // 1 second
+    setMoeilijkheid(800); // 1 second
 });
 moeilijkKnop.addEventListener("click", function() {
-    setMoeilijkheid(750); // 0.75 seconds
+    setMoeilijkheid(500); // 0.75 seconds
 });
 expertKnop.addEventListener("click", function() {
-    setMoeilijkheid(500); // 0.5 seconds
+    setMoeilijkheid(250); // 0.25 seconds
 });
