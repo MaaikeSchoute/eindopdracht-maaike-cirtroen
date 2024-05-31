@@ -47,15 +47,6 @@ button {
     font-size: 2em;
 }
 
-.buttonStop {
-    background-color: #8a1a12;
-}
-
-.aantalGemepteVliegen {
-    padding: 1em;
-    background-color:#4a7042 ;
-}
-
 h1{
     margin-bottom: 0.5em;
 }
@@ -74,18 +65,12 @@ img {
     width: 12em;
 }
 
-#vliegenMepper {
-    position: absolute;
-    top: 230px;
-    width: 12em;
-    ;
-}
-
 .bgFoutBody {
     background-image: url("../img/bg/fout.png");
     background-repeat: repeat;
 }
 
+/* HF = Header - Footer*/
 .bgFoutHF {
     background-color: #8a1a12;
 }
@@ -98,6 +83,7 @@ img {
     background-color: #84baaa;
 }
 
+/* Bron: kan ik wanneer er wordt geslagen, een animatie laten zien?: https://chatgpt.com/share/2f3cf7b7-6efd-4f40-8ba9-7f77a8243632 */
 @keyframes mepAnimatie {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -106,21 +92,11 @@ img {
 
 .mepAnimatie {
     animation: mepAnimatie 0.2s ease;
-
-}
-
-.sliderBox {
-    padding: 0.5em;
-    background-color: white;
-    width: 200px;
-    margin: 1em;
-    font-style: #4a7042;
 }
 
 .snelheidsKnop {
     width: 13em;
     font-size: 12px;
- 
 }
 
 .snelheidsKnoppen {

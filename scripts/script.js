@@ -1,5 +1,3 @@
-console.log("hello");
-
 //--------------------------------------- Constanten ---------------------------------------
 // HTML elementen
 const startKnop = document.querySelector("#knop");
@@ -31,7 +29,7 @@ let intervalRunning = false;
 let snelheid = 1000;
 
 //--------------------------------------- Functies ---------------------------------------
-//Start het spel! Laat verschillende dieren zien, behoud de orginele achtergrond, start slideshow.
+// Start het spel! Laat verschillende dieren zien, behoud de orginele achtergrond, start slideshow.
 function startSpel() {
     randomDierNummer = Math.floor(Math.random() * plaatjesArray.length);
     console.log("random dier nummer: " + randomDierNummer);
@@ -49,9 +47,10 @@ function mepDier() {
     console.log(intervalId);
     dierPlaatje.src = plaatjesArrayFout[randomDierNummer];
     mepGeluid.play();
+    //hoe kan ik ervoor zorgen dat de muziek stopt wanneer je op een dier slaat?: https://chatgpt.com/share/2f3cf7b7-6efd-4f40-8ba9-7f77a8243632
     spelGeluid.pause();
-    
 
+// Bron: Dobbelsteen oefening + lessen If Else
     if (randomDierNummer === 0) {
         console.log("goed");
         main.classList.add("bgGoed");
@@ -59,7 +58,7 @@ function mepDier() {
         header.classList.add("bgGoedHF");
         winGeluid.play();
         // Update de score
-        getal++;
+        getal++; //bron: ChatGTP: hoe kan ik deze tekst: Document.querySelector('p').tekst zorgen dat p een getal wordt, en elke keer dat het lukt, +1 bij komt. Dus in de browser zie je eerst '0'. En dan, als het goed is 1. En dan 2. etc: https://chatgpt.com/share/2c73fe97-05ef-40b7-a3ea-2fc5043b9b95
         aantalGemepteVliegen.textContent = getal;
     } else {
         console.log("fout");
@@ -70,14 +69,14 @@ function mepDier() {
     }
 }
 
-//Verwijderd toegevoegede achtergrond, wanneer je het dierplaatje mept.
+//Bron: Verwijderd toegevoegede achtergrond, wanneer je het dierplaatje mept.
 function resetBackgrounds() {
     main.classList.remove("bgFoutBody", "bgGoed");
     footer.classList.remove("bgFoutHF", "bgGoedHF");
     header.classList.remove("bgFoutHF", "bgGoedHF");
 }
 
-//Interval van de slideshow, verschillende dieren
+//Bron: OK. Hoe kan ik ervoor zorgen, dat wanneer je op de knop 'volgende' drukt, de plaatjes vanzelf randrom worden af gespeelt, totdat je op het plaatje klikt. : https://chatgpt.com/share/2f3cf7b7-6efd-4f40-8ba9-7f77a8243632 + https://jsfiddle.net/721ajvhd/
 function startAutoPlay() {
     console.log("interval running: " + intervalRunning);
     if (!intervalRunning) {
@@ -87,7 +86,8 @@ function startAutoPlay() {
     snelheidsKnoppen.classList.remove("hidden");
 }
 
-//Past moeilijkheids niveau aan van spel
+//Past moeilijkheids niveau aan van spel.
+//Bron: Interval van de slideshow, verschillende dieren: Hoe kan ik ervoor zorgen, data de snelheid van de interval (slideshow) 2 second duurt wanneer je op de knop "makkelijk" drukt, 1 second per duur op de knop "normal" 0.75 seconds op de knop moeilijk en 0.5 seconde op de knop expert?: https://chatgpt.com/share/2f3cf7b7-6efd-4f40-8ba9-7f77a8243632 + Hulp van Lisette
 function setMoeilijkheid(niveau) {
     snelheid = niveau;
     console.log("niveau: " + snelheid);
@@ -105,14 +105,17 @@ dierPlaatje.addEventListener("click", mepDier);
 
 //moeilijkheidsknoppen
 makkelijkKnop.addEventListener("click", function() {
-    setMoeilijkheid(2000); // 2 seconds
+    setMoeilijkheid(2000); // 2 secondonde
 });
 normaalKnop.addEventListener("click", function() {
-    setMoeilijkheid(800); // 1 second
+    setMoeilijkheid(800); // 0.8 secondonde
 });
 moeilijkKnop.addEventListener("click", function() {
-    setMoeilijkheid(500); // 0.75 seconds
+    setMoeilijkheid(500); // 0.5 secondonde
 });
 expertKnop.addEventListener("click", function() {
-    setMoeilijkheid(250); // 0.25 seconds
+    setMoeilijkheid(250); // 0.25 secondonde
 });
+
+
+// Overige bronnen: https://chatgpt.com/share/2c73fe97-05ef-40b7-a3ea-2fc5043b9b95 niet alles gebruikt
